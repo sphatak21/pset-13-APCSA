@@ -1,4 +1,8 @@
 public class ProblemSet13 {
+    public static void main(String[] args){
+        int[] arr = new int[]{2, 0, 0, 2, 0, 10};
+        System.out.println(new ProblemSet13().groupNoAdj(0, arr, 14));
+    }
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
@@ -31,17 +35,17 @@ public class ProblemSet13 {
     }
 
     public boolean groupNoAdj(int start, int[] numbers, int target) {
-        if(start == numbers.length){
+        if(start >= numbers.length){
             return false;
         }
         if(numbers[start] == target){
             return true;
         }else if(numbers[start] > target){
-            return groupSum(start + 1, numbers, target);
+            return groupNoAdj(start + 1, numbers, target);
         }else{
-            boolean result = groupSum(start + 2, numbers, target - numbers[start]);
+            boolean result = groupNoAdj(start + 2, numbers, target - numbers[start]);
             if(!result){
-                return groupSum(start + 1, numbers, target);
+                return groupNoAdj(start + 1, numbers, target);
             }
             return result;
         }
@@ -129,7 +133,7 @@ public class ProblemSet13 {
         for(int i = 10; i <= totalSum; i+=10){
             if(!groupSum(0, numbers, i)){
                 sumTenMultiples = i;
-                break; 
+                break;
             }
         }
         return (totalSum - sumTenMultiples) % 2 == 1;
