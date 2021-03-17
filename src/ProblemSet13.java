@@ -129,6 +129,7 @@ public class ProblemSet13 {
         for(int i = 10; i <= totalSum; i+=10){
             if(!groupSum(0, numbers, i)){
                 sumTenMultiples = i;
+                break; 
             }
         }
         return (totalSum - sumTenMultiples) % 2 == 1;
