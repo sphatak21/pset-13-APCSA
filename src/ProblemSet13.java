@@ -1,8 +1,4 @@
 public class ProblemSet13 {
-    public static void main(String[] args){
-        int[] arr = new int[] {5, 5, 7};
-        System.out.println(new ProblemSet13().splitOdd(arr));
-    }
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
