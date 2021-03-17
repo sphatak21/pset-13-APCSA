@@ -1,7 +1,7 @@
 public class ProblemSet13 {
     public static void main(String[] args){
-        int[] arr = new int[] {4, 4, 8};
-        System.out.println(new ProblemSet13().splitArray(arr));
+        int[] arr = new int[] {5, 5, 7};
+        System.out.println(new ProblemSet13().splitOdd(arr));
     }
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
@@ -50,7 +50,7 @@ public class ProblemSet13 {
             return result;
         }
     }
-    
+
     public boolean groupSum5(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
@@ -122,9 +122,19 @@ public class ProblemSet13 {
 
 
     public boolean splitOdd(int[] numbers) {
-
-    }
-    private boolean helper(int start, int[] numbers){
-
+        if(numbers.length == 1){
+            return numbers[0] % 2 == 1;
+        }
+        int totalSum = 0;
+        for(int i : numbers) {
+            totalSum += i;
+        }
+        int sumTenMultiples = 0;
+        for(int i = 10; i <= totalSum; i+=10){
+            if(!groupSum(0, numbers, i)){
+                sumTenMultiples = i;
+            }
+        }
+        return (totalSum - sumTenMultiples) % 2 == 1;
     }
 }
