@@ -1,4 +1,5 @@
 public class ProblemSet13 {
+    
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
@@ -61,7 +62,7 @@ public class ProblemSet13 {
                 if(numbers[start + 1] == 1){
                     result = groupSum5(start + 2, numbers, target - numbers[start]);
                 }else{
-                    result = groupSum5(start + 1, numbers, target);
+                    result = groupSum5(start + 1, numbers, target - numbers[start]);
                 }
                 return result;
             }else {
