@@ -1,8 +1,4 @@
 public class ProblemSet13 {
-    public static void main(String[] args){
-        int[] arr = new int[]{2, 0, 0, 2, 0, 10};
-        System.out.println(new ProblemSet13().groupNoAdj(0, arr, 14));
-    }
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
