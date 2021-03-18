@@ -1,5 +1,9 @@
 public class ProblemSet13 {
-    
+    public static void main(String[] args){
+        int[] arr = new int[] {5, 5, 10, 6, 1};
+        System.out.println(new ProblemSet13().splitOdd(arr));
+    }
+
     public boolean groupSum(int start, int[] numbers, int target) {
         if(start == numbers.length){
             return false;
@@ -128,7 +132,7 @@ public class ProblemSet13 {
         }
         int sumTenMultiples = 0;
         for(int i = 10; i <= totalSum; i+=10){
-            if(!groupSum(0, numbers, i)){
+            if(groupSum(0, numbers, i)){
                 sumTenMultiples = i;
                 break;
             }
